@@ -1,0 +1,30 @@
+VINCE JEFFREY DE GUZMAN
+Data Analyst | Python | Excel | SQL | Power BI
+
+CONTACT
+Email: vjmd2054@gmail.com
+LinkedIn: linkedin.com/in/vince-jeffrey-de-guzman-7208a2398
+GitHub: github.com/vjmd2054-netizen
+
+PROFILE
+Clearance and logistics professional transitioning into data analytics. Experienced in processing shipment and customs data, with a practical focus on data cleaning, automation, business reporting, and transforming raw information into decision-ready insights.
+
+TECHNICAL SKILLS
+Excel: Advanced formulas, PivotTables, Power Query, VBA, data analysis
+Python: Pandas, NumPy, automation, data cleaning, analysis
+SQL: SELECT, JOIN, GROUP BY, filtering, aggregation
+Power BI: Data modeling, dashboards, visualization, business reporting
+
+EXPERIENCE
+Clearance Agent | Freight & Logistics
+Managed shipment and customs documentation, processed operational data, and coordinated clearance activities. Developed an interest in applying Excel and Python to automate repetitive work and improve data handling.
+
+PROFESSIONAL DEVELOPMENT
+Data Analytics Development
+Building practical capabilities in Python, Pandas, SQL, Power BI, and advanced Excel for data analysis and business intelligence.
+
+PROJECT HIGHLIGHTS
+Customs Data Analysis: Explored shipment and customs records to identify trends, transaction volumes, processing issues, and operational patterns.
+Shipment Data Dashboard: Designed an interactive dashboard for shipment volume, status, processing time, and performance monitoring.
+Excel Automation System: Created a VBA-based workflow to reduce repetitive data processing and improve reporting efficiency.
+Python Data Cleaning Tool: Built a workflow to import, clean, transform, and validate spreadsheet and CSV data.
