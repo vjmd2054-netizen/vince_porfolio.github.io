@@ -12,6 +12,7 @@
 
     <style>
         :root { --ink: #10233f; --muted: #52647c; --surface: #f6f8fc; --white: #fff; --brand: #1d68d8; --brand-dark: #1150ad; --line: #dce5f0; --shadow: 0 12px 30px rgba(20, 47, 83, .08); }
+        body.dark { --ink: #e5eefb; --muted: #aebfd5; --surface: #0d1a2d; --white: #14243a; --brand: #79b4ff; --brand-dark: #9cc9ff; --line: #2a405d; --shadow: 0 12px 30px rgba(0, 0, 0, .22); }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; scroll-padding-top: 84px; }
         body { font-family: "Segoe UI", Arial, sans-serif; line-height: 1.65; background: var(--surface); color: var(--ink); }
@@ -23,6 +24,8 @@
         nav ul { display: flex; list-style: none; gap: 1.45rem; }
         nav ul li a { color: #dbeafe; text-decoration: none; font-size: .92rem; font-weight: 600; transition: color .2s ease; }
         nav ul li a:hover { color: white; }
+        .theme-toggle { border: 1px solid #6e95c4; background: transparent; color: white; border-radius: 999px; cursor: pointer; font: inherit; font-size: 1rem; line-height: 1; padding: .45rem .6rem; }
+        .theme-toggle:hover { background: rgba(255,255,255,.12); }
         .hero { min-height: 100vh; min-height: 700px; display: grid; place-items: center; text-align: center; padding: 120px 24px 70px; background: radial-gradient(circle at 15% 20%, #2766bd 0, transparent 34%), radial-gradient(circle at 85% 75%, #163e83 0, transparent 37%), #0b1e38; color: white; }
         .hero-content { max-width: 820px; }
         .eyebrow { color: #9bcbff; font-size: .78rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 1rem; }
@@ -72,6 +75,10 @@
         .contact a { display: inline-block; color: white; text-decoration: none; border: 1px solid #628ec3; border-radius: .4rem; padding: .65rem .9rem; font-weight: 600; }
         .contact a:hover { background: rgba(255,255,255,.1); }
         footer { background: #061326; color: #9eb3ce; text-align: center; padding: 1.25rem; font-size: .85rem; }
+        body.dark .project-card { background: #172941; }
+        body.dark .btn-primary { background: #d9eaff; color: #0b2b50; }
+        body.dark .btn-primary:hover { background: white; }
+        body.dark .skip-link { background: #e5eefb; }
         @media (max-width: 768px) { nav { padding: .8rem 5%; } nav .logo { font-size: .9rem; } nav ul { gap: .85rem; overflow-x: auto; } nav ul li a { font-size: .78rem; } .hero { min-height: 620px; } section { padding: 4.7rem 5%; } .skill-grid, .project-grid { grid-template-columns: 1fr; } }
         @media (max-width: 460px) { nav ul li:nth-child(2), nav ul li:nth-child(4) { display: none; } .hero { padding-inline: 1.25rem; } }
     </style>
@@ -93,6 +100,10 @@
             <li><a href="#experience">Experience</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
+
+        <button class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch to dark mode">
+            <span aria-hidden="true">☾</span>
+        </button>
     </nav>
 
     <!-- HERO -->
@@ -471,6 +482,30 @@
 
     </footer>
 
+    <script>
+        (function () {
+            const toggle = document.querySelector('.theme-toggle');
+            const icon = toggle.querySelector('span');
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            function setTheme(theme) {
+                const isDark = theme === 'dark';
+                document.body.classList.toggle('dark', isDark);
+                icon.textContent = isDark ? '☀' : '☾';
+                const label = isDark ? 'Switch to light mode' : 'Switch to dark mode';
+                toggle.setAttribute('aria-label', label);
+                toggle.title = label;
+            }
+
+            setTheme(savedTheme || (systemPrefersDark ? 'dark' : 'light'));
+            toggle.addEventListener('click', function () {
+                const nextTheme = document.body.classList.contains('dark') ? 'light' : 'dark';
+                localStorage.setItem('theme', nextTheme);
+                setTheme(nextTheme);
+            });
+        }());
+    </script>
 </body>
 </html>
 ```
